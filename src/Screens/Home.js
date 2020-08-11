@@ -10,11 +10,16 @@ function Home() {
 	let content = null;
 
 	if (blogs.data) {
-		content = blogs.data.map((blog, key) => <div key={key}>{blog.title}</div>);
+		content = blogs.data.map((blog, key) => (
+			<div key={key}>
+				<h2 className="blog-title">{blog.title}</h2>
+				<h3 className="blog-content"> {blog.content}</h3>
+			</div>
+		));
 	}
 
 	return (
-		<div>
+		<div className="card">
 			<h1>{content}</h1>
 		</div>
 	);
