@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Image } from "react";
 import { useAxiosGet } from "../Hooks/HttpRequest";
 
 function Home() {
@@ -12,6 +12,9 @@ function Home() {
 	if (blogs.data) {
 		content = blogs.data.map((blog, key) => (
 			<div key={key}>
+				<div>
+					<img src={require("../assets/images/Honda.png")} alt="pic"></img>
+				</div>
 				<h2 className="blog-title">{blog.title}</h2>
 				<h3 className="blog-content"> {blog.content}</h3>
 			</div>
