@@ -11,19 +11,27 @@ function Home() {
 
 	if (blogs.data) {
 		content = blogs.data.map((blog, key) => (
-			<div key={key}>
-				<div>
+			<div className="article" key={key}>
+				<div className="blog-image">
 					<img src={require("../assets/images/Honda.png")} alt="pic"></img>
 				</div>
-				<h2 className="blog-title">{blog.title}</h2>
-				<h3 className="blog-content"> {blog.content}</h3>
+				<div className="blog-title">
+					<h1>{blog.title}</h1>
+
+					<p> {blog.content}</p>
+
+					<span>Jon Doe</span>
+				</div>
 			</div>
 		));
 	}
 
 	return (
-		<div className="card">
-			<h1>{content}</h1>
+		<div className="top">
+			<header>
+				<h1>Most Recent Post</h1>
+			</header>
+			<div className="cards">{content}</div>;
 		</div>
 	);
 }
