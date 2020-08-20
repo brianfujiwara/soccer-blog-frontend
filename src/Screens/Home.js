@@ -1,5 +1,6 @@
-import React, { Image } from "react";
+import React from "react";
 import { useAxiosGet } from "../Hooks/HttpRequest";
+import { Card, CardDeck, Container, Button } from "react-bootstrap";
 
 function Home() {
 	//const url = "http://localhost:8080/blogs";
@@ -11,27 +12,33 @@ function Home() {
 
 	if (blogs.data) {
 		content = blogs.data.map((blog, key) => (
-			<div className="article" key={key}>
+			<Card className="text-left col-sm" style={{ width: "18rem" }} key={key}>
 				<div className="blog-image">
-					<img src={require("../assets/images/Honda.png")} alt="pic"></img>
+					<Card.Img variant="top" src={require("../assets/images/Honda.png")} />
 				</div>
-				<div className="blog-title">
-					<h1>{blog.title}</h1>
+				<Card.Body className="card-body">
+					<Card.Title className="blog-title">
+						<h1>{blog.title}</h1>
+					</Card.Title>
+					<Card.Text className="card-text">
+						<p> {blog.content}</p>
 
-					<p> {blog.content}</p>
-
-					<span>Jon Doe</span>
-				</div>
-			</div>
+						<span>Jon Doe</span>
+					</Card.Text>
+					<a href="#" className="stretched-link"></a>
+				</Card.Body>
+			</Card>
 		));
 	}
 
 	return (
 		<div className="top">
-			<header>
+			<header className="text-center">
 				<h1>Most Recent Post</h1>
 			</header>
-			<div className="cards">{content}</div>;
+			<Container fluid className="cards-container">
+				<CardDeck>{content}</CardDeck>
+			</Container>
 		</div>
 	);
 }
