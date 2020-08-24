@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Container } from "react-bootstrap";
-import Navigation from "./Components/Navigation";
+import Navigation1 from "./Components/Navigation1";
+
 import Home from "./Screens/Home";
 import About from "./Screens/About";
 import Login from "./Screens/Login";
@@ -16,7 +17,8 @@ function App() {
 	return (
 		<Router>
 			<div className="App">
-				<Navigation />
+				<Navigation1 />
+
 				<Switch>
 					<Route exact path="/">
 						<Home />

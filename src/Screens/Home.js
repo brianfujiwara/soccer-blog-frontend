@@ -1,6 +1,7 @@
 import React from "react";
 import { useAxiosGet } from "../Hooks/HttpRequest";
 import { Card, CardDeck, Container, Button } from "react-bootstrap";
+import CarouselArticles from "../Components/CarouselArticles";
 
 function Home() {
 	//const url = "http://localhost:8080/blogs";
@@ -21,7 +22,7 @@ function Home() {
 						<h1>{blog.title}</h1>
 					</Card.Title>
 					<Card.Text className="card-text">
-						<p> {blog.content}</p>
+						<span> {blog.content}</span>
 
 						<span>Jon Doe</span>
 					</Card.Text>
@@ -33,6 +34,8 @@ function Home() {
 
 	return (
 		<div className="top">
+			<CarouselArticles />
+
 			<header className="text-center">
 				<h1>Most Recent Post</h1>
 			</header>
