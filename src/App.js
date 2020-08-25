@@ -5,6 +5,7 @@ import Navigation1 from "./Components/Navigation1";
 import Home from "./Screens/Home";
 import About from "./Screens/About";
 import Login from "./Screens/Login";
+import Article from "./Screens/Article";
 
 import {
 	BrowserRouter as Router,
@@ -23,12 +24,13 @@ function App() {
 					<Route exact path="/">
 						<Home />
 					</Route>
-					<Route path="/about">
+					<Route exact path="/about">
 						<About />
 					</Route>
-					<Route path="/login">
+					<Route exact path="/login">
 						<Login />
 					</Route>
+					<Route exact path="/:id" component={Article} />{" "}
 				</Switch>
 
 				<footer className="footer">

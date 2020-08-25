@@ -2,10 +2,15 @@
 	background-color: transparent;
 }
 
-.carousel-caption {
+.title {
 	color: white;
 	font-size: xx-large;
 	font-weight: bold;
-	position: absolute;
+	position: relative;
 	z-index: 100;
+}
+
+.author {
+	color: blue;
+	font-size: small;
 }

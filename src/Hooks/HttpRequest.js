@@ -15,7 +15,8 @@ export function useAxiosGet(url) {
 		axios
 			.get(url)
 			.then((response) => {
-				setRequest({ data: response.data._embedded.blogs });
+				//setRequest({ data: response.data._embedded.blogs });
+				setRequest({ data: response.data });
 			})
 			.catch(() => {
 				setRequest({ data: null });
