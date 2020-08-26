@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouteMatch } from "react-router-dom";
-import Image from "react-bootstrap/Image";
 import { useAxiosGet } from "../Hooks/HttpRequest";
+import { Container } from "react-bootstrap";
 
 function Article() {
 	const {
@@ -15,9 +15,22 @@ function Article() {
 	let content = null;
 
 	if (blogs.data) {
-		content = <div>{blogs.data.title}</div>;
+		content = (
+			<div className="articleController">
+				<h1>{blogs.data.title}</h1>
+				<h2>Written by: {blogs.data.writer}</h2>
+				<img src={blogs.data.imgurl} alt=""></img>
+				<div className="artcon">
+					<p>{blogs.data.content}</p>
+				</div>
+			</div>
+		);
 	}
-	return <div>{content}</div>;
+	return (
+		<Container>
+			<h1 className="mt-4">{content}</h1>
+		</Container>
+	);
 }
 
 export default Article;

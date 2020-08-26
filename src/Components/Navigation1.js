@@ -13,7 +13,11 @@ const navLinks = [
 export default function Navigation1() {
 	return (
 		<Navbar collapseOnSelect bg="dark" variant="dark" expand="lg">
-			<Navbar.Brand>First Touch</Navbar.Brand>
+			<Navbar.Brand>
+				<Nav.Link className="titleName" href="/">
+					First Touch Blog
+				</Nav.Link>
+			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav">
 				<Nav className="ml-auto">
