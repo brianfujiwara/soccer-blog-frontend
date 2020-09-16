@@ -8,6 +8,7 @@ const navLinks = [
 	{ title: "About", path: "/about" },
 
 	{ title: "Login", path: "/login" },
+	{ title: "Sign Up", path: "/signup" },
 ];
 
 export default function Navigation1() {

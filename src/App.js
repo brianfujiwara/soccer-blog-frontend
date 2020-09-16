@@ -6,6 +6,7 @@ import Home from "./Screens/Home";
 import About from "./Screens/About";
 import Login from "./Screens/Login";
 import Article from "./Screens/Article";
+import SignUp from "./Screens/SignUp";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -24,6 +25,9 @@ function App() {
 						</Route>
 						<Route exact path="/login">
 							<Login />
+						</Route>
+						<Route exact path="/signup">
+							<SignUp />
 						</Route>
 						<Route exact path="/:id" component={Article} />{" "}
 					</Switch>
