@@ -4,24 +4,44 @@
 // 	margin-left: 10px;
 // }
 
+#root {
+	//padding-bottom: 60px;
+	//height: calc(100% - 60px);
+}
+
+.drake {
+	//margin-bottom: 400px;
+	position: relative;
+	min-height: 100vh;
+	margin-bottom: 200px;
+}
+
 .article {
 	margin-right: 20px;
 	margin-left: 20px;
 	margin-bottom: 10px;
 }
-.footer {
+footer {
 	background: #303036;
 	color: #d3d3d3;
-	height: 100px;
+	height: 50px;
+	//position: relative;
+	//margin-top: 50vh;
+	text-align: center;
 	position: relative;
-	margin-top: 50vh;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: flex;
 }
 .text-center {
-	border-bottom: 3px solid black;
+	border-bottom: 2px solid grey;
 	padding-bottom: 5px;
 	margin-left: 20px;
 	margin-right: 20px;
+	margin-top: 20px;
 	position: relative;
+	font-size: medium;
 }
 
 .blog-title {

@@ -2,6 +2,7 @@
 @import "./_navigation";
 @import "./_blogs";
 @import "./_slider";
+@import "./article";
 @import "~bootstrap/scss/bootstrap";
 
 html body {
@@ -9,6 +10,7 @@ html body {
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 	font-weight: 500;
 	margin: 0;
+
 	background-color: $background;
 }
 
