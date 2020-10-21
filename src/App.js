@@ -1,6 +1,6 @@
 import React from "react";
-import { Navbar, Container } from "react-bootstrap";
-import Navigation1 from "./Components/Navigation1";
+
+import Navigation1 from "./Components/Navigation/Navigation1";
 
 import Home from "./Screens/Home";
 import About from "./Screens/About";
@@ -9,6 +9,8 @@ import Article from "./Screens/Article";
 import SignUp from "./Screens/SignUp";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import "./App.css";
 
 function App() {
 	return (

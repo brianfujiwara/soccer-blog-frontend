@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import axios from "axios";
 
 function SignUp() {
+	const URL = "blogs/signup";
+
 	const [emailData, setEmailData] = useState({
 		email: "",
 	});
@@ -27,7 +30,20 @@ function SignUp() {
 	function handleSubmit(e) {
 		e.preventDefault();
 
-		console.log(emailData.email, passwordData.password, usernameData.username);
+		let email = emailData.email;
+		let password = passwordData.password;
+		let username = usernameData.username;
+
+		console.log(email, password, username);
+
+		axios
+			.post(URL, { email, password, username })
+			.then((Response) => {
+				if (Response.data.accessToken) {
+					localStorage.setItem("user", JSON.stringify(Response.data));
+				}
+			})
+			.catch({ setEmailData: null });
 	}
 
 	return (

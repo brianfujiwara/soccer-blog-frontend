@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAxiosGet } from "../Hooks/HttpRequest";
 
 export default function CarouselArticles() {
-	const url = "/blogs/slider";
+	const url = "blogs/slider";
 
 	let blogs = useAxiosGet(url);
 
