@@ -1,0 +1,23 @@
+.nav__top {
+	display: flex;
+	text-decoration: none;
+	margin-left: auto;
+}
+
+.titleName,
+.titleName:hover {
+	text-decoration: none;
+	color: white;
+	font-size: x-large;
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.nav__link {
+	text-decoration: inherit;
+}
+
+.nav__title {
+	display: flex;
+	margin-left: 10px;
+	margin-right: 10px;
+}

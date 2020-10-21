@@ -6,6 +6,9 @@ import "@quasar/extras/ionicons-v4/ionicons-v4.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:8080/"; /// Global address for all request made with axios.
 
 ReactDOM.render(
 	<React.StrictMode>
