@@ -12,7 +12,7 @@ export default function CarouselArticles() {
 
 	if (blogs.data) {
 		content = blogs.data.map((blog, key) => (
-			<Carousel.Item>
+			<Carousel.Item key={key}>
 				<img
 					className="d-block w-100 img-fluid"
 					src={blog.imgurl}

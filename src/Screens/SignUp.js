@@ -1,85 +1,74 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+
 import axios from "axios";
 
 function SignUp() {
 	const URL = "blogs/signup";
 
-	const [emailData, setEmailData] = useState({
-		email: "",
-	});
-
-	const [passwordData, setPasswordData] = useState({
-		password: "",
-	});
-
-	const [usernameData, setUsernameData] = useState({
+	const [user, setUser] = useState({
 		username: "",
+		email: "",
+		password: "",
+		//loggedIn: localStorage.getItem("loggedIn") || "false",
 	});
-
-	function emailChange(e) {
-		setEmailData({ email: e.target.value });
-	}
-	function usernameChange(e) {
-		setUsernameData({ username: e.target.value });
-	}
-	function passwordChange(e) {
-		setPasswordData({ password: e.target.value });
-	}
 
 	function handleSubmit(e) {
 		e.preventDefault();
 
-		let email = emailData.email;
-		let password = passwordData.password;
-		let username = usernameData.username;
+		const { email, password, username } = user;
 
 		console.log(email, password, username);
 
 		axios
 			.post(URL, { email, password, username })
 			.then((Response) => {
+				//setUser({ ...user, loggedIn: true });
+				//localStorage.setItem("loggedIn", "true");
 				if (Response.data.accessToken) {
 					localStorage.setItem("user", JSON.stringify(Response.data));
+					console.log(Response.data);
 				}
 			})
-			.catch({ setEmailData: null });
+			.catch(setUser({ ...user, loggedIn: false }));
 	}
 
 	return (
 		<div className="container center_div">
 			<Form onSubmit={handleSubmit}>
-				<Form.Group>
+				<div>
 					<Form.Group>
-						<Form.Label>Email</Form.Label>
+						<Form.Group>
+							<Form.Label>Email</Form.Label>
+							<Form.Control
+								type="email"
+								name="email"
+								placeholder="Enter email"
+								onChange={(e) => setUser({ ...user, email: e.target.value })}
+								value={user.email}
+							/>
+						</Form.Group>
+						<Form.Label>Username</Form.Label>
 						<Form.Control
-							type="email"
-							name="email"
-							placeholder="Enter email"
-							value={EventTarget.value}
-							onChange={emailChange}
+							type="username"
+							name="username"
+							placeholder="Enter username"
+							onChange={(e) => setUser({ ...user, username: e.target.value })}
+							value={user.username}
 						/>
 					</Form.Group>
-					<Form.Label>Username</Form.Label>
-					<Form.Control
-						type="username"
-						name="username"
-						placeholder="Enter username"
-						value={EventTarget.value}
-						onChange={usernameChange}
-					/>
-				</Form.Group>
 
-				<Form.Group>
-					<Form.Label>Password</Form.Label>
-					<Form.Control
-						type="password"
-						name="password"
-						placeholder="Enter password"
-						value={EventTarget.value}
-						onChange={passwordChange}
-					/>
-				</Form.Group>
+					<Form.Group>
+						<Form.Label>Password</Form.Label>
+						<Form.Control
+							type="password"
+							name="password"
+							placeholder="Enter password"
+							onChange={(e) => setUser({ ...user, password: e.target.value })}
+							value={user.password}
+						/>
+					</Form.Group>
+				</div>
 
 				<Button type="submit">Register</Button>
 			</Form>
